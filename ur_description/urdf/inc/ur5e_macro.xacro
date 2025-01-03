@@ -46,5 +46,11 @@
     />
     <xacro:include filename="$(find robotiq_gripper)/urdf/eef.xacro"/>
 
+    <gazebo>
+      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+    </gazebo>
+
   </xacro:macro>
 </robot>

@@ -1,0 +1,30 @@
+# Публикация всех состояний шарниров
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+
+# Контроллер траектории для шарниров манипулятора
+eff_joint_traj_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - shoulder_pan_joint
+    - shoulder_lift_joint
+    - elbow_joint
+    - wrist_1_joint
+    - wrist_2_joint
+    - wrist_3_joint
+  gains:
+    shoulder_pan_joint: {p: 1000, i: 0, d: 10, i_clamp: 100}
+    shoulder_lift_joint: {p: 1000, i: 0, d: 10, i_clamp: 100}
+    elbow_joint: {p: 1000, i: 0, d: 10, i_clamp: 100}
+    wrist_1_joint: {p: 500, i: 0, d: 10, i_clamp: 50}
+    wrist_2_joint: {p: 500, i: 0, d: 10, i_clamp: 50}
+    wrist_3_joint: {p: 500, i: 0, d: 10, i_clamp: 50}
+
+# Контроллер для хватателя
+gripper_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - robotiq_85_left_knuckle_joint
+  gains:
+    robotiq_85_left_knuckle_joint: {p: 40, i: 0, d: 0, i_clamp: 1}
